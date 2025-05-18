@@ -85,22 +85,22 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: <%= ENV["DATABASE_PROD_NAME"] %>
-    username: <%= ENV["DATABASE_PROD_USERNAME"] %>
-    password: <%= ENV["DATABASE_PROD_PASSWORD"] %>
-    host: <%= ENV["DATABASE_PROD_HOST"] %>
+    database: <%= ENV.fetch["DATABASE_PROD_NAME"] %>
+    username: <%= ENV.fetch["DATABASE_PROD_USERNAME"] %>
+    password: <%= ENV.fetch["DATABASE_PROD_PASSWORD"] %>
+    host: <%= ENV.fetch["DATABASE_PROD_HOST"] %>
   cache:
     <<: *primary_production
-    database: <%= ENV["DATABASE_PROD_NAME"] %>_cache
-    host: <%= ENV["DATABASE_PROD_HOST"] %>
+    database: <%= ENV.fetch["DATABASE_PROD_NAME"] %>_cache
+    host: <%= ENV.fetch["DATABASE_PROD_HOST"] %>
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: <%= ENV["DATABASE_PROD_NAME"] %>_queue
-    host: <%= ENV["DATABASE_PROD_HOST"] %>
+    database: <%= ENV.fetch["DATABASE_PROD_NAME"] %>_queue
+    host: <%= ENV.fetch["DATABASE_PROD_HOST"] %>
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: <%= ENV["DATABASE_PROD_NAME"] %>_cable
-    host: <%= ENV["DATABASE_PROD_HOST"] %>
+    database: <%= ENV.fetch["DATABASE_PROD_NAME"] %>_cable
+    host: <%= ENV.fetch["DATABASE_PROD_HOST"] %>
     migrations_paths: db/cable_migrate
