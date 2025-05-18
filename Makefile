@@ -22,6 +22,10 @@ db-shell:
 run:
 	bin/dev
 
+.PHONY: create
+create:
+	bin/rails db:create
+
 .PHONY: migrate
 migrate:
 	bin/rails db:migrate
