@@ -29,3 +29,7 @@ create:
 .PHONY: migrate
 migrate:
 	bin/rails db:migrate
+
+.PHONY: test
+test:
+	bundle exec rspec
