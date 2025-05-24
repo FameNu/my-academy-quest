@@ -5,6 +5,8 @@ class QuestsController < ApplicationController
   end
 
   def create
+    Quest.create!(quest_params)
+    redirect_to root_path
   end
 
   def update
@@ -15,4 +17,9 @@ class QuestsController < ApplicationController
 
   def brag
   end
+
+  private
+    def quest_params
+      params.require(:quest).permit(:title)
+    end
 end
