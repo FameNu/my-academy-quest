@@ -4,7 +4,7 @@
 </header>
 
 <%= form_with class: "flex justify-between flex-col sm:flex-row gap-2 sm:gap-4 mb-4", model: @new_quest, url: quests_path do |form| %>
-  <%= form.text_field :title, placeholder: "Enter quest title", class: "input" %>
+  <%= form.text_field :title, placeholder: "Enter quest title", class: "input w-full" %>
   <%= form.submit "Create Quest", class: "btn btn-primary" %>
 <% end %>
 
