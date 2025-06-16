@@ -36,15 +36,16 @@ describe QuestsController, type: :controller do
       }.to change(Quest, :count).by(1)
     end
 
-    it "redirects to the root path after creation" do
+    it "when created a new quest, it redirects to the root path" do
       post :create, params: { quest: valid_attributes }
       expect(response).to redirect_to(root_path)
     end
 
-    it "create a quest with invalid attributes" do
+    it "number of list will not change if create quest with invalid attributes" do
       expect {
         post :create, params: { quest: invalid_attributes }
       }.not_to change(Quest, :count)
+      expect(response).to redirect_to(root_path)
     end
   end
 end
