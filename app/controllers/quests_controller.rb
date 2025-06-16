@@ -7,8 +7,12 @@ class QuestsController < ApplicationController
   end
 
   def create
-    Quest.create!(quest_params)
-    redirect_to root_path
+    @new_quest = Quest.new(quest_params)
+    if @new_quest.save
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def update
