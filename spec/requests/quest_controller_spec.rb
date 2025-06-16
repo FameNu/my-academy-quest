@@ -9,7 +9,6 @@ describe QuestsController, type: :controller do
 
     it "returns successful or ok response" do
       get :index
-      expect(response).to have_http_status(:success)
       expect(response).to have_http_status(:ok)
     end
 
