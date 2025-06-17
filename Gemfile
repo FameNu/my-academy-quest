@@ -63,6 +63,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "rails-controller-testing"
+  gem "simplecov", require: false
 end
 
 gem "dotenv-rails", "3.1.8"
