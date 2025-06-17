@@ -72,21 +72,19 @@ describe QuestsController, type: :controller do
   describe "DELETE #destroy" do
     let!(:quest) { Quest.create!(valid_attributes) }
 
-    it "deletes the quest" do
+    it "deletes the quest and redirects to the root path" do
       expect {
         delete :destroy, params: { id: quest.id }
       }.to change(Quest, :count).by(-1)
-    end
-
-    it "redirects to the root path after deletion" do
-      delete :destroy, params: { id: quest.id }
       expect(response).to redirect_to(root_path)
     end
 
-    it "not assigns quest id" do
+    it "not assigns quest id, number of Quest will not change" do
+      quest_before_delete = Quest.count
       expect {
         delete :destroy, params: { id: "" }
       }.to raise_error(ActiveRecord::RecordNotFound)
+      expect(Quest.count).to eq(quest_before_delete)
     end
   end
 end
