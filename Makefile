@@ -18,6 +18,10 @@ db-logs:
 db-shell:
 	docker compose exec db bash
 
+.PHONY: lint
+lint:
+	bundle exec rubocop -a
+
 .PHONY: run
 run:
 	bin/dev
