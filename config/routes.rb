@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "quests#index"
   get "/quests", to: redirect("/")
-  resources :quests, only: [:create, :update, :destroy]
+  resources :quests, only: [ :create, :update, :destroy ]
   get "/brag", to: "quests#brag"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
